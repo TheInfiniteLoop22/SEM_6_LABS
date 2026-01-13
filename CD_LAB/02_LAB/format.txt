@@ -1,0 +1,50 @@
+while( ch = fgetc(inputFile) !=EOF){} // This is to take ch by ch
+while (fgets(line, sizeof(line), inputFile)){} //This is to take line by line
+
+Format for file handling questions:
+-----------------------------------
+#include<stdio.h>
+#include<stdlib.h>
+// normally include the lib
+
+Then....
+int main(int argc, char* argv[]){
+	FILE *inputFile, *outputFile;
+	//declare necessary variables
+	
+	//INPUT VALIDATION
+	if(argc != 3){
+		printf("Correct usage: %s <in> <out>" argv[0]);
+		return 1;
+	}
+	
+	//THEN OPEN INPUT FILE IN READ MODE
+	inputFile = fopen(argv[1],"r");
+	
+	if(inputFile == NULL){
+		printf
+		return 1;
+	}
+	
+	//OPEN OUTPUT FILE IN WRITE MODE
+	outputFile = fopen(argv[2],"w");
+	
+	if(outputFile ++ NULL){
+		printf
+		fclose(inputFile);
+		return 1;
+	}
+	
+	-----------------------
+	//THEN THE MAIN CODE
+	// Reading Charecter bu Charecter
+	while ((ch = fgetc(inputFile)) != EOF)
+	//Reading line by line
+	while (fgets(line, sizeof(line), inputFile))
+	
+	//then finally 
+	fputc(ch/line,outputFile);
+	---------------------
+	
+	//close all open files and return 0.
+	
