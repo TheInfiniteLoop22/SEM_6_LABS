@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Table and Image Animation</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #container {
+            position: relative;
+            left: 500px;   /* start from right side */
+            width: fit-content;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        img {
+            width: 150px;
+            display: block;
+            margin: auto;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 15px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>jQuery Lab Experiment</h2>
+
+    <div id="container">
+        <table id="myTable">
+            <tr>
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+        </table>
+
+        <img src="sample.jpg" alt="Sample Image">
+    </div>
+
+    <button id="moveBtn">Move Left</button>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#myTable tr:odd").css("background-color", "#dbeafe");
+            $("#myTable tr:even").css("background-color", "#fef3c7");
+
+            $("#moveBtn").click(function () {
+                $("#container").animate({
+                    left: "0px"
+                }, 1000);
+            });
+
+        });
+    </script>
+
+</body>
+</html>

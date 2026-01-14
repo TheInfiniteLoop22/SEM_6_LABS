@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Birthday Card Designer</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .controls {
+            width: 300px;
+        }
+
+        .controls label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .controls input[type="text"],
+        .controls select {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+        }
+
+        .controls input[type="radio"],
+        .controls input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+
+
+        .controls button {
+            margin-top: 15px;
+            padding: 8px;
+            width: 100px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+            font-weight: normal;
+        }
+
+        .card {
+            width: 300px;
+            height: 400px;
+            background-color: yellow;
+            border: 4px solid black;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .card h2 {
+            margin-top: 10px;
+        }
+
+        .card img {
+            width: 150px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="controls">
+        <label>Choose a background color:</label>
+        <select id="bgColor">
+            <option value="yellow">Yellow</option>
+            <option value="pink">Pink</option>
+            <option value="lightblue">Light Blue</option>
+            <option value="lightgreen">Light Green</option>
+        </select>
+
+        <label>Choose a font:</label>
+        <select id="fontStyle">
+            <option value="Verdana">Verdana</option>
+            <option value="Arial">Arial</option>
+            <option value="Times New Roman">Times New Roman</option>
+        </select>
+
+        <label>Specify a numeric font size:</label>
+        <input type="text" id="fontSize" value="25">
+
+        <label>Choose a border style:</label>
+
+        <label class="option">
+            <input type="radio" name="border" value="none">
+            None
+        </label>
+
+        <label class="option">
+            <input type="radio" name="border" value="double">
+            Double
+        </label>
+
+        <label class="option">
+            <input type="radio" name="border" value="solid" checked>
+            Solid
+        </label>
+
+        <label class="option">
+            <input type="checkbox" id="showImage" checked>
+            Add the Default Picture
+        </label>
+
+        <label>Enter the greeting text below:</label>
+        <input type="text" id="greetingText" value="Happy Birthday, and many more">
+
+        <button id="updateBtn">Update</button>
+    </div>
+
+    <div class="card" id="card">
+        <h2 id="cardText">Happy Birthday, and many more</h2>
+        <img src="bday.jpg" id="cardImage">
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $("#updateBtn").click(function () {
+
+            // Background color
+            $("#card").css("background-color", $("#bgColor").val());
+
+            // Font family
+            $("#cardText").css("font-family", $("#fontStyle").val());
+
+            // Font size
+            $("#cardText").css("font-size", $("#fontSize").val() + "px");
+
+            // Border style
+            var borderStyle = $("input[name='border']:checked").val();
+            if (borderStyle === "none") {
+                $("#card").css("border", "none");
+            } else {
+                $("#card").css("border", "4px " + borderStyle + " black");
+            }
+
+            // Greeting text
+            $("#cardText").text($("#greetingText").val());
+
+            // Image toggle
+            if ($("#showImage").is(":checked")) {
+                $("#cardImage").show();
+            } else {
+                $("#cardImage").hide();
+            }
+        });
+
+    });
+</script>
+
+</body>
+</html>
