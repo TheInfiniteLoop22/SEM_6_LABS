@@ -12,54 +12,44 @@ of the received element. Use buffered send.
 
 int main(int argc, char *argv[])
 {
-    int r, s, n;
-    MPI_Status w;
+    int rank, size, num;
+    int arr[100];
+    MPI_Status status;
 
     MPI_Init(&argc, &argv);
-    MPI_Comm_rank(MPI_COMM_WORLD, &r);
-    MPI_Comm_size(MPI_COMM_WORLD, &s);
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    MPI_Comm_size(MPI_COMM_WORLD, &size);
 
-    if (r == 0)
+    if (rank == 0)
     {
-        printf("Process %d: Enter %d elements:\n", r, s - 1);
+        printf("Enter %d elements:\n", size - 1);
+        for (int i = 1; i < size; i++)
+            scanf("%d", &arr[i]);
 
-        int a[s];
-        a[0] = 0;
+        int buffer_size = (sizeof(int) + MPI_BSEND_OVERHEAD) * (size - 1);
+        void *buffer = malloc(buffer_size);
 
-        for (int i = 1; i < s; i++)
+        MPI_Buffer_attach(buffer, buffer_size);
+
+        for (int i = 1; i < size; i++)
         {
-            scanf("%d", &a[i]);
+            MPI_Bsend(&arr[i], 1, MPI_INT, i, 0, MPI_COMM_WORLD);
         }
 
-        int bs = (sizeof(int) + MPI_BSEND_OVERHEAD) * s;
-        void *b = malloc(bs);
-
-        MPI_Buffer_attach(b, bs);
-
-        for (int i = 1; i < s; i++)
-        {
-            MPI_Bsend(&a[i], 1, MPI_INT, i, i, MPI_COMM_WORLD);
-        }
-
-        MPI_Buffer_detach(&b, &bs);
-        free(b);
+        MPI_Buffer_detach(&buffer, &buffer_size);
+        free(buffer);
     }
     else
     {
-        MPI_Recv(&n, 1, MPI_INT, 0, r, MPI_COMM_WORLD, &w);
+        MPI_Recv(&num, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, &status);
 
-        if (r % 2 == 0)
-        {
-            printf("Process %d: Received number: %d  Square: %d\n",
-                   r, n, n * n);
-        }
+        if (rank % 2 == 0)
+            printf("Process %d:  Recieved number: %d  Square = %d\n",rank,num,num*num);
         else
-        {
-            printf("Process %d: Received number: %d  Cube: %d\n",
-                   r, n, n * n * n);
-        }
+            printf("Process %d:  Recieved number: %d  Cube = %d\n",rank,num,num*num*num);
     }
 
     MPI_Finalize();
     return 0;
 }
+
