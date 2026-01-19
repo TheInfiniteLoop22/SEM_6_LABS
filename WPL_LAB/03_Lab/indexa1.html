@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Train Ticket Booking</title>
+
+    <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    >
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            background-color: #f4f6f9;
+        }
+
+        .banner {
+            background: url("train2.jpg") center/cover no-repeat;
+            height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .banner h1 {
+            background: rgba(0, 0, 0, 0.65);
+            padding: 15px 40px;
+            border-radius: 10px;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .form-card {
+            margin-top: -70px;
+        }
+
+        .section-title {
+            border-left: 5px solid #007bff;
+            padding-left: 10px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        .carousel-item img {
+            height: 350px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="banner">
+    <h1>Train Ticket Booking</h1>
+</div>
+
+<div class="container form-card">
+    <div class="card shadow-lg">
+
+        <div class="card-header bg-primary text-white text-center">
+            <h4 class="mb-0">Book Your Journey</h4>
+        </div>
+
+        <div class="card-body">
+
+            <form>
+
+                
+                <h5 class="section-title">Journey Details</h5>
+
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="from">From</label>
+                        <input
+                            type="text"
+                            id="from"
+                            class="form-control"
+                            placeholder="Source Station"
+                        >
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="to">To</label>
+                        <input
+                            type="text"
+                            id="to"
+                            class="form-control"
+                            placeholder="Destination Station"
+                        >
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="date">Journey Date</label>
+                        <input
+                            type="date"
+                            id="date"
+                            class="form-control"
+                        >
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="class">Class</label>
+                        <select id="class" class="form-control">
+                            <option selected disabled>Select Class</option>
+                            <option>Sleeper</option>
+                            <option>3A</option>
+                            <option>2A</option>
+                            <option>1A</option>
+                        </select>
+                    </div>
+                </div>
+
+                
+                <h5 class="section-title">Passenger Details</h5>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="pname">Name</label>
+                        <input
+                            type="text"
+                            id="pname"
+                            class="form-control"
+                            placeholder="Passenger Name"
+                        >
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="age">Age</label>
+                        <input
+                            type="number"
+                            id="age"
+                            class="form-control"
+                        >
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label>Gender</label><br>
+
+                        <div class="form-check form-check-inline">
+                            <input
+                                class="form-check-input"
+                                type="radio"
+                                name="gender"
+                                id="male"
+                            >
+                            <label class="form-check-label" for="male">
+                                Male
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input
+                                class="form-check-input"
+                                type="radio"
+                                name="gender"
+                                id="female"
+                            >
+                            <label class="form-check-label" for="female">
+                                Female
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="berth">Berth Preference</label>
+                        <select id="berth" class="form-control">
+                            <option selected disabled>Select Berth</option>
+                            <option>Lower</option>
+                            <option>Middle</option>
+                            <option>Upper</option>
+                        </select>
+                    </div>
+                </div>
+
+                
+                <h5 class="section-title">Additional Options</h5>
+
+                <div class="form-group">
+                    <div class="form-check form-check-inline">
+                        <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="senior"
+                        >
+                        <label class="form-check-label" for="senior">
+                            Senior Citizen
+                        </label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="meal"
+                        >
+                        <label class="form-check-label" for="meal">
+                            Meal Required
+                        </label>
+                    </div>
+                </div>
+
+                
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-success btn-lg mr-2">
+                        Book Ticket
+                    </button>
+                    <button type="reset" class="btn btn-danger btn-lg">
+                        Cancel
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <h4 class="text-center mb-3">Experience Indian Railways</h4>
+
+    <div id="trainCarousel" class="carousel slide" data-ride="carousel">
+
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <img
+                    src="train1.jpg"
+                    class="d-block w-100"
+                    alt="Train Image 1"
+                >
+            </div>
+
+            <div class="carousel-item">
+                <img
+                    src="train2.jpg"
+                    class="d-block w-100"
+                    alt="Train Image 2"
+                >
+            </div>
+
+            <div class="carousel-item">
+                <img
+                    src="train4.jpg"
+                    class="d-block w-100"
+                    alt="Train Image 3"
+                >
+            </div>
+
+        </div>
+
+        <a
+            class="carousel-control-prev"
+            href="#trainCarousel"
+            data-slide="prev"
+        >
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+
+        <a
+            class="carousel-control-next"
+            href="#trainCarousel"
+            data-slide="next"
+        >
+            <span class="carousel-control-next-icon"></span>
+        </a>
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Page Design</title>
+
+    <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    >
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        .card-top {
+            background: linear-gradient(90deg,#0d6efd,#6610f2);
+            border-radius: .375rem;
+        }
+        .card-top .card-title { margin: 0; font-weight: 700; letter-spacing: .2px; }
+        .search-input { min-width: 220px; max-width: 420px; }
+        .top-controls { gap: .5rem; display:flex; align-items:center; }
+        .improved-card { border: 0; }
+        .improved-card .card-header { font-weight: 600; }
+        @media (max-width: 767px) {
+            .card-top .d-flex-row { flex-direction: column !important; align-items: flex-start; }
+            .search-input { width: 100%; }
+        }
+        .row.equal-height { align-items: stretch; }
+        .col-eq { display: flex; }
+        .flex-card { display: flex; flex-direction: column; width: 100%; }
+        .flex-card .card-body { display: flex; flex-direction: column; }
+        .push-bottom { margin-top: auto; }
+        .btn-gap > * { margin-right: .5rem; }
+        .btn-gap > *:last-child { margin-right: 0; }
+    </style>
+
+<body class="bg-light">
+
+<div class="container-fluid p-4">
+
+    <!-- Top Card -->
+    <div class="card mb-4 shadow improved-card">
+        <div class="card-body card-top text-white">
+                    
+                <h3 class="card-title mb-2 mb-md-0">
+                    Student Management Dashboard
+                </h3>
+
+                <div class="top-controls d-flex align-items-center">
+                    <!-- Input Group -->
+                    <div class="input-group search-input">
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Search student"
+                        >
+                        <div class="input-group-append">
+                    <div class="ml-3 d-none d-sm-flex align-items-center">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Badges (collapsed on small screens) -->
+                
+                <div class="btn-group mt-2 mt-md-0">
+                        <span class="badge badge-success mr-1">Active</span>
+                        <span class="badge badge-warning mr-1">Pending</span>
+                        <span class="badge badge-danger">Blocked</span>
+                    </div>
+                </div>
+
+                <!-- Button Group -->
+                <div class="btn-group mt-2 mt-md-0">
+                    <button class="btn btn-light">Home</button>
+                    <button class="btn btn-light">Profile</button>
+                    <button class="btn btn-light">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row equal-height">
+
+        <div class="col-md-4 mb-3 d-flex col-eq">
+            <div class="card shadow flex-card">
+                <div class="card-header bg-info text-white">
+                    Student Details
+                </div>
+
+                <div class="card-body">
+                    <input
+                        type="text"
+                        class="form-control mb-2"
+                        placeholder="Student Name"
+                    >
+                    <input
+                        type="email"
+                        class="form-control mb-2"
+                        placeholder="Email"
+                    >
+                    <input
+                        type="text"
+                        class="form-control mb-2"
+                        placeholder="Course"
+                    >
+                    <div class="push-bottom">
+                        <button class="btn btn-info btn-block">
+                            Save
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3 d-flex col-eq">
+            <div class="card shadow flex-card">
+                <div class="card-header bg-success text-white">
+                    Actions
+                </div>
+
+                <div class="card-body text-center">
+                    <div class="d-flex flex-column">
+                        <button class="btn btn-success btn-block mb-2">Add</button>
+                        <button class="btn btn-warning btn-block mb-2">Update</button>
+                        <button class="btn btn-danger btn-block mb-2">Delete</button>
+                    </div>
+
+                    <div class="push-bottom text-center mt-3">
+                        <div class="btn-group btn-gap">
+                            <button class="btn btn-outline-success">
+                                Approve
+                            </button>
+                            <button class="btn btn-outline-danger">
+                                Reject
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3 d-flex col-eq">
+            <div class="card shadow flex-card">
+                <div class="card-header bg-dark text-white">
+                    Status & Controls
+                </div>
+
+                <div class="card-body">
+                    <p>
+                        Total Students
+                        <span class="badge badge-primary float-right">
+                            120
+                        </span>
+                    </p>
+
+                    <p>
+                        Registered
+                        <span class="badge badge-success float-right">
+                            95
+                        </span>
+                    </p>
+
+                    <p>
+                        Pending
+                        <span class="badge badge-warning float-right">
+                            25
+                        </span>
+                    </p>
+
+                    <div class="push-bottom btn-group btn-group-sm mt-3">
+                        <button class="btn btn-dark">
+                            Refresh
+                        </button>
+                        <button class="btn btn-secondary">
+                            Settings
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

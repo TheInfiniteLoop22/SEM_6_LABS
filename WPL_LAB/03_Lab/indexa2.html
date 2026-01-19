@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Next Gen Gamer Magazine</title>
+
+    <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    >
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            background-color: #0f0f14;
+            color: #fff;
+        }
+
+        .cover {
+            background: url("game4.jpg") center/cover no-repeat;
+            height: 520px;
+            position: relative;
+        }
+
+        .cover-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(0,0,0,0.4));
+        }
+
+        .cover-content {
+            position: relative;
+            z-index: 2;
+            padding: 70px;
+        }
+
+        .mag-title {
+            font-size: 72px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .tagline {
+            font-size: 20px;
+            letter-spacing: 1px;
+            color: #f8d210;
+        }
+
+        .issue-badge {
+            font-size: 15px;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            border-left: 6px solid #f8d210;
+            padding-left: 12px;
+            margin-bottom: 25px;
+        }
+
+        .story-card {
+            background-color: #1a1a24;
+            border: none;
+        }
+
+        .story-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        footer {
+            background-color: #000;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="cover">
+    <div class="cover-overlay"></div>
+
+    <div class="cover-content">
+        <span class="badge badge-warning issue-badge">
+            August 2026 Edition
+        </span>
+
+        <h1 class="mag-title mt-3">
+            Next Gen Gamer
+        </h1>
+
+        <p class="tagline">
+            Esports • Reviews • Future Tech
+        </p>
+
+        <div class="mt-4">
+            <button class="btn btn-warning btn-lg mr-2">
+                Subscribe
+            </button>
+            <button class="btn btn-outline-light btn-lg">
+                Explore Now
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+
+    <h3 class="section-title text-light">
+        Featured Stories
+    </h3>
+
+    <div class="row">
+
+        
+        <div class="col-md-4">
+            <div class="card story-card shadow mb-4">
+                <img
+                    src="game1.jpg"
+                    class="card-img-top"
+                    alt="Esports"
+                >
+                <div class="card-body">
+                    <span class="badge badge-danger">
+                        Esports
+                    </span>
+                    <h5 class="card-title mt-2">
+                        Rise of Pro Gaming Leagues
+                    </h5>
+                    <p class="card-text text-muted">
+                        How esports is becoming a billion-dollar industry.
+                    </p>
+                    <button class="btn btn-danger btn-sm">
+                        Read More
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col-md-4">
+            <div class="card story-card shadow mb-4">
+                <img
+                    src="game2.jpg"
+                    class="card-img-top"
+                    alt="Setup"
+                >
+                <div class="card-body">
+                    <span class="badge badge-primary">
+                        Hardware
+                    </span>
+                    <h5 class="card-title mt-2">
+                        Ultimate Gaming Setup 2026
+                    </h5>
+                    <p class="card-text text-muted">
+                        Build the perfect high-performance battle station.
+                    </p>
+                    <button class="btn btn-primary btn-sm">
+                        Read More
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col-md-4">
+            <div class="card story-card shadow mb-4">
+                <img
+                    src="game3.jpg"
+                    class="card-img-top"
+                    alt="VR"
+                >
+                <div class="card-body">
+                    <span class="badge badge-success">
+                        VR Tech
+                    </span>
+                    <h5 class="card-title mt-2">
+                        Virtual Reality Revolution
+                    </h5>
+                    <p class="card-text text-muted">
+                        How VR is changing the future of gaming worlds.
+                    </p>
+                    <button class="btn btn-success btn-sm">
+                        Read More
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="text-center text-white p-4 mt-5">
+    <p class="mb-1">
+        NEXT GEN GAMER Magazine
+    </p>
+    <small>
+        © 2026 All Rights Reserved
+    </small>
+</footer>
+
+</body>
+</html>

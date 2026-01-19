@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Bio-Data Form</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+
+    <div class="card shadow p-4">
+        <h2 class="text-center mb-4">Student Bio-Data Form</h2>
+
+        <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" placeholder="Enter your name">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Register Number</label>
+            <input type="text" class="form-control" placeholder="Enter register number">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Email ID</label>
+            <input type="email" class="form-control" placeholder="Enter email">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Gender</label><br>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender">
+                <label class="form-check-label">Male</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender">
+                <label class="form-check-label">Female</label>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Skills</label><br>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">C</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">Java</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">Python</label>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Address</label>
+            <textarea class="form-control" rows="3"></textarea>
+        </div>
+
+        <div class="text-center mb-4">
+            <button class="btn btn-primary">Submit</button>
+            <button class="btn btn-secondary">Reset</button>
+        </div>
+
+        <h4 class="text-center mb-3">Educational Qualification</h4>
+
+        <table class="table table-bordered table-striped text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>Course</th>
+                    <th>Institution</th>
+                    <th>Year</th>
+                    <th>Percentage</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>SSLC</td>
+                    <td>ABC School</td>
+                    <td>2020</td>
+                    <td>95%</td>
+                </tr>
+
+                <tr>
+                    <td>PUC</td>
+                    <td>XYZ College</td>
+                    <td>2022</td>
+                    <td>91%</td>
+                </tr>
+
+                <tr>
+                    <td>B.Tech</td>
+                    <td>Engineering College</td>
+                    <td>2023</td>
+                    <td>—</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>

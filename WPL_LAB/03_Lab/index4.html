@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Class Timetable using Bootstrap</title>
+
+    <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    >
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        
+        
+        .carousel-item {
+            padding: 30px 20px;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 6%;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: rgba(0,0,0,0.8);
+            background-size: 18px 18px;
+            border-radius: 50%;
+            padding: 14px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+        }
+
+        .card-timetable { border-radius: .5rem; }
+
+        .table-sm td, .table-sm th { padding: .45rem .6rem; }
+        .time-col { width: 140px; white-space: nowrap; text-align: center; }
+
+        .day-badge { font-weight: 700; padding: .45rem .6rem; }
+
+        .carousel-indicators li { width: 10px; height: 10px; border-radius: 10px; }
+
+        tbody tr:hover { background: rgba(13,110,253,0.04); }
+
+        @media (max-width: 576px) {
+            .carousel-item { padding: 18px 8px; }
+            .time-col { width: 110px; }
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <div class="container mt-4">
+    <h2 class="text-center mb-4">
+        Class Timetable
+    </h2>
+
+    <div class="card card-timetable shadow-sm">
+        <div class="card-body">
+
+            <div
+                id="timetableCarousel"
+                class="carousel slide"
+                data-ride="carousel"
+            >
+
+        <ul class="carousel-indicators">
+            <li
+                data-target="#timetableCarousel"
+                data-slide-to="0"
+                class="active"
+            ></li>
+            <li
+                data-target="#timetableCarousel"
+                data-slide-to="1"
+            ></li>
+            <li
+                data-target="#timetableCarousel"
+                data-slide-to="2"
+            ></li>
+        </ul>
+
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <h4 class="text-center"><span class="badge day-badge bg-primary mr-2">Mon</span> Monday</h4>
+
+                <div class="table-responsive mt-3">
+                <table class="table table-bordered table-striped table-hover table-sm">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Time</th>
+                            <th>Subject</th>
+                            <th>Faculty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="time-col">9:00 - 10:00</td>
+                            <td>Mathematics</td>
+                            <td>Dr. Rao</td>
+                        </tr>
+                        <tr>
+                            <td class="time-col">10:00 - 11:00</td>
+                            <td>DBMS</td>
+                            <td>Prof. Kumar</td>
+                        </tr>
+                        <tr>
+                            <td class="time-col">11:15 - 12:15</td>
+                            <td>Operating Systems</td>
+                            <td>Dr. Mehta</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <h4 class="text-center"><span class="badge day-badge bg-success mr-2">Wed</span> Wednesday</h4>
+
+                <div class="table-responsive mt-3">
+                <table class="table table-bordered table-striped table-hover table-sm">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Time</th>
+                            <th>Subject</th>
+                            <th>Faculty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="time-col">9:00 - 10:00</td>
+                            <td>Computer Networks</td>
+                            <td>Dr. Singh</td>
+                        </tr>
+                        <tr>
+                            <td class="time-col">10:00 - 11:00</td>
+                            <td>Web Technology</td>
+                            <td>Ms. Sharma</td>
+                        </tr>
+                        <tr>
+                            <td class="time-col">11:15 - 12:15</td>
+                            <td>DBMS Lab</td>
+                            <td>Mr. Patil</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <h4 class="text-center"><span class="badge day-badge bg-dark mr-2">Fri</span> Friday</h4>
+
+                <div class="table-responsive mt-3">
+                <table class="table table-bordered table-striped table-hover table-sm">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Time</th>
+                            <th>Subject</th>
+                            <th>Faculty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="time-col">9:00 - 10:00</td>
+                            <td>Software Engineering</td>
+                            <td>Dr. Nair</td>
+                        </tr>
+                        <tr>
+                            <td class="time-col">10:00 - 11:00</td>
+                            <td>Operating Systems Lab</td>
+                            <td>Mr. Verma</td>
+                        </tr>
+                        <tr>
+                            <td class="time-col">11:15 - 12:15</td>
+                            <td>Seminar</td>
+                            <td>Staff</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+
+        </div>
+
+        <a
+            class="carousel-control-prev"
+            href="#timetableCarousel"
+            data-slide="prev"
+            role="button"
+            aria-label="Previous"
+        >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+
+        <a
+            class="carousel-control-next"
+            href="#timetableCarousel"
+            data-slide="next"
+            role="button"
+            aria-label="Next"
+        >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
