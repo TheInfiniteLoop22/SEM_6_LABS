@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sliding Text on Image</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+            background: #f2f2f2;
+        }
+
+        #container {
+            position: relative;
+            width: 500px;
+            margin: 40px auto;
+        }
+
+        #container img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        #text {
+            position: absolute;
+            top: 40%;
+            left: -100%;
+            font-size: 32px;
+            color: white;
+            font-weight: bold;
+            background: rgba(0,0,0,0.6);
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Sliding Text on Image</h2>
+
+<div id="container">
+    <img src="sample.jpg" alt="Image">
+    <div id="text">Welcome to jQuery</div>
+</div>
+
+<button id="start">Slide Text</button>
+
+<script>
+$(document).ready(function(){
+
+    $("#start").click(function(){
+
+        $("#text").css("left", "-100%");
+
+        $("#text").animate({
+            left: "20%"
+        }, 1500);
+
+    });
+
+});
+</script>
+
+</body>
+</html>
