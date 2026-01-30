@@ -1,5 +1,0 @@
-/*
-Write a MPI program to read a word of length N. Using N processes including the root get 
-output word with the pattern as shown in example. Display the resultant output word in the 
-root.
-*/
