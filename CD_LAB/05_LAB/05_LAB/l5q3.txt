@@ -1,0 +1,83 @@
+==============================
+LAB 5 – FLEX PROGRAMS
+==============================
+
+
+---------------------------------------------
+Question
+---------------------------------------------
+Find the number of positive integer, negative integer, positive floating point number and negative floating point number.
+
+
+---------------------------------------------
+Code (l5q3.l)
+---------------------------------------------
+
+%{
+#include <stdio.h>
+
+int posIntCount = 0;
+int negIntCount = 0;
+int posFloatCount = 0;
+int negFloatCount = 0;
+%}
+
+%%
+-[0-9]+\.[0-9]+     { negFloatCount++; }
+[0-9]+\.[0-9]+      { posFloatCount++; }
+-[0-9]+             { negIntCount++; }
+[0-9]+              { posIntCount++; }
+[ \t\n]             { }
+.                   { }
+%%
+
+int main()
+{
+    yylex();
+
+    printf("Positive Integers: %d\n", posIntCount);
+    printf("Negative Integers: %d\n", negIntCount);
+    printf("Positive Floating Numbers: %d\n", posFloatCount);
+    printf("Negative Floating Numbers: %d\n", negFloatCount);
+
+    return 0;
+}
+
+int yywrap()
+{
+    return 1;
+}
+
+
+---------------------------------------------
+How to Run (Linux)
+---------------------------------------------
+
+flex l5q3.l
+gcc lex.yy.c -o l5q3 -lfl
+./l5q3
+
+OR
+
+./l5q3 < input.txt
+
+
+---------------------------------------------
+Sample Input
+---------------------------------------------
+5
+9.0
+-63
+-25
+0
+96.3
+
+
+---------------------------------------------
+Sample Output
+---------------------------------------------
+Positive Integers: 2
+Negative Integers: 2
+Positive Floating Numbers: 2
+Negative Floating Numbers: 0
+
