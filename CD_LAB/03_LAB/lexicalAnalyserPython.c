@@ -19,15 +19,13 @@ static int LB=0,FP=0;
 static int row=1,col=1;
 static int initialized=0;
 
+/* Updated keywords for Python */
 const char *keywords[]={
- "int","float","double","char","void","long","short","signed","unsigned",
- "if","else","while","for","do","switch","case","default",
- "break","continue","return","goto",
- "auto","register","static","extern","const","volatile",
- "struct","union","enum","typedef","sizeof",
- "printf","scanf","malloc","free","strlen","strcpy","strcmp","exit",
- "main"
+ "def","class","if","elif","else","for","while","break","continue",
+ "return","import","from","as","pass","True","False","None",
+ "and","or","not","in","is","lambda","with","yield","try","except","finally","print"
 };
+
 
 int keywordCount = sizeof(keywords)/sizeof(keywords[0]);
 
@@ -52,30 +50,11 @@ int isKeyword(char *str){
 }
 
 int isSpecialSymbol(char c){
-    return (c=='('||c==')'||c=='{'||c=='}'|| c=='['||c==']'||c==';'||c==',');
+    return (c=='('||c==')'||c=='{'||c=='}'||c=='['||c==']'||c==','||c==':'||c=='.');
 }
 
 void skipWhiteSpace(){
     while(peekChar()==' '||peekChar()=='\t'||peekChar()=='\n') advanceChar();
-}
-
-void skipSingleLineComment(){
-    while(advanceChar()!='\n');
-}
-
-void skipMultiLineComment(){
-    char c;
-    while(FP<bufSize){
-        c=advanceChar();
-        if(c=='*' && peekChar()=='/'){
-            advanceChar();
-            break;
-        }
-    }
-}
-
-void skipPreprocessor(){
-    while(advanceChar()!='\n');
 }
 
 struct token getNextToken(FILE *fp){
@@ -102,44 +81,18 @@ start:
         return tk;
     }
 
-    /* Handle preprocessor directives */
+    /* Handle comments */
     if(c=='#'){
-        skipPreprocessor();
+        while(peekChar()!='\n' && peekChar()!='\0') advanceChar();
         goto start;
     }
 
-    /* Handle comments */
-    if(c=='/'){
-        if(peekChar()=='/'){
-            advanceChar();
-            skipSingleLineComment();
-            goto start;
-        }
-        if(peekChar()=='*'){
-            advanceChar();
-            skipMultiLineComment();
-            goto start;
-        }
-    }
-
-    /* character literal */
-    if(c=='\''){
-        while(peekChar()!='\'' && peekChar()!='\0'){
-            advanceChar();
-        }
-        advanceChar();  // closing quote
-
-        int len=FP-LB;
-        strncpy(tk.lexeme,buffer+LB,len);
-        tk.lexeme[len]='\0';
-
-        strcpy(tk.type,"CHAR_LITERAL");
-        return tk;
-    }
-
     /* Handle string literals */
-    if(c=='"'){
-        while(peekChar()!='"' && peekChar()!='\0')advanceChar();
+    if(c=='"' || c=='\'')
+    {
+        char quote = c;
+        while(peekChar()!=quote && peekChar()!='\0')
+            advanceChar();
         advanceChar();
 
         int len=FP-LB;
@@ -148,6 +101,7 @@ start:
         strcpy(tk.type,"STRING_LITERAL");
         return tk;
     }
+
 
     /* Handle identifiers and keywords */
     if(isalpha(c)||c=='_'){
@@ -237,7 +191,14 @@ start:
         return tk;
     }
 
-    /* single character operators */
+    /* Handle exponentiation operator (**) */
+    if(c=='*' && peekChar()=='*'){
+        advanceChar();
+        strcpy(tk.lexeme,"**");
+        strcpy(tk.type,"ARITH_OP");
+        return tk;  
+    }
+
     if(c=='+'||c=='-'||c=='*'||c=='/'||c=='%'){
         tk.lexeme[0]=c; tk.lexeme[1]='\0';
         strcpy(tk.type,"ARITH_OP");
@@ -276,7 +237,7 @@ start:
 }
 
 int main(){
-    FILE *fp=fopen("sample.c","r");
+    FILE *fp=fopen("sample.py","r");
     if(!fp){
         printf("File cannot be opened\n");
         return 0;
