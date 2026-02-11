@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Magazine Cover Generator</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<h2>Magazine Front Cover Generator</h2>
+
+<form method="post">
+    {% csrf_token %}
+
+    <label>Title:</label>
+    <input type="text" name="title" required><br><br>
+
+    <label>Subtitle:</label>
+    <input type="text" name="subtitle"><br><br>
+
+    <label>Background Color:</label>
+    <input type="color" name="bgcolor" value="#ffffff"><br><br>
+
+    <label>Font Color:</label>
+    <input type="color" name="fontcolor" value="#000000"><br><br>
+
+    <label>Font Size:</label>
+    <input type="number" name="fontsize" value="36"><br><br>
+
+    <label>Select Image:</label>
+    <select name="image">
+        <option value="img1.jpg">Image 1</option>
+        <option value="img2.jpg">Image 2</option>
+    </select><br><br>
+
+    <button type="submit">Generate Cover</button>
+</form>
+
+<hr>
+
+{% if title %}
+<div class="cover"
+     data-bgcolor="{{ bgcolor }}"
+     data-fontcolor="{{ fontcolor }}"
+     data-fontsize="{{ fontsize }}">
+
+    <img src="{% static image %}" class="cover-image" alt="cover image">
+
+    <h1 class="title">{{ title }}</h1>
+    <h3 class="subtitle">{{ subtitle }}</h3>
+</div>
+{% endif %}
+
+<script>
+const cover = document.querySelector('.cover');
+if (cover) {
+    cover.style.backgroundColor = cover.dataset.bgcolor;
+    cover.style.setProperty('--fontcolor', cover.dataset.fontcolor);
+    cover.style.setProperty('--fontsize', cover.dataset.fontsize + 'px');
+}
+</script>
+
+</body>
+</html>
