@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Book Information System</h1>
+
+    <img src="{% static 'cover.jpg' %}" class="cover" alt="Book Cover">
+
+    <div class="nav">
+        <a href="{% url 'metadata' %}">Metadata</a>
+        <a href="{% url 'reviews' %}">Reviews</a>
+        <a href="{% url 'publisher' %}">Publisher Info</a>
+    </div>
+</div>
+
+</body>
+</html>

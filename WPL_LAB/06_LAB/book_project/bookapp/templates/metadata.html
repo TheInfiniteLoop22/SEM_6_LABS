@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Metadata</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Book Metadata</h2>
+
+    <div class="content">
+        <p><b>Title:</b> The Art of Almost</p>
+        <p><b>Author:</b> John Doe</p>
+        <p><b>ISBN:</b> 978-1234567890</p>
+        <p><b>Genre:</b> Fiction</p>
+    </div>
+
+    <div class="back">
+        <a href="{% url 'home' %}">Back to Home</a>
+    </div>
+</div>
+
+</body>
+</html>

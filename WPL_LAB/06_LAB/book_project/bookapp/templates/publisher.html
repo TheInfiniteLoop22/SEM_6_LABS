@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Publisher Info</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Publisher Information</h2>
+
+    <div class="content">
+        <p><b>Publisher:</b> Open Pages Publishing</p>
+        <p><b>Location:</b> New Delhi, India</p>
+        <p><b>Year:</b> 2024</p>
+    </div>
+
+    <div class="back">
+        <a href="{% url 'home' %}">Back to Home</a>
+    </div>
+</div>
+
+</body>
+</html>
