@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arithmetic Calculator</title>
+</head>
+<body>
+    <h2>Basic Arithmetic Operations</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <label>Number 1:</label>
+        <input type="number" name="num1" required><br><br>
+
+        <label>Number 2:</label>
+        <input type="number" name="num2" required><br><br>
+
+        <label>Operation:</label>
+        <select name="operation">
+            <option value="add">Addition</option>
+            <option value="sub">Subtraction</option>
+            <option value="mul">Multiplication</option>
+            <option value="div">Division</option>
+        </select><br><br>
+
+        <button type="submit">Calculate</button>
+    </form>
+
+    {% if result is not None %}
+        <h3>Result: {{ result }}</h3>
+    {% endif %}
+</body>
+</html>
