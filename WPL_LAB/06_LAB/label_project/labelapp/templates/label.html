@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Label Formatter</title>
+</head>
+<body>
+
+    <h2>Label Formatting Application</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <label>Name:</label>
+        <input type="text" name="name" required>
+        <br><br>
+
+        <label>Message:</label>
+        <input type="text" name="message" required>
+        <br><br>
+
+        <!-- Color Selection -->
+        <label>Text Color:</label>
+        <input type="radio" name="color" value="red"> Red
+        <input type="radio" name="color" value="blue"> Blue
+        <input type="radio" name="color" value="green"> Green
+        <br><br>
+
+        <!-- Formatting Options -->
+        <label>Formatting:</label>
+        <input type="checkbox" name="bold"> Bold
+        <input type="checkbox" name="italic"> Italic
+        <input type="checkbox" name="underline"> Underline
+        <br><br>
+
+        <!-- Buttons -->
+        <button type="submit">Display</button>
+        <button type="reset">Clear</button>
+        <button type="button" onclick="window.close()">Exit</button>
+
+    </form>
+
+    <hr>
+
+    <!-- Display Section -->
+    {% if full_message %}
+        <h3 style="{{ style }}">
+            {{ full_message }}
+        </h3>
+    {% endif %}
+
+</body>
+</html>
