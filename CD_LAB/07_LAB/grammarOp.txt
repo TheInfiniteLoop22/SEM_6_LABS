@@ -1,0 +1,157 @@
+QUESTION:
+---------
+
+Program → main ( ) { Declarations Statement_list }
+
+Declarations → Data_type Identifier_list ; Declarations
+             | ε
+
+Data_type → int
+          | char
+
+Identifier_list → id
+                | id , Identifier_list
+                | id [ number ]
+                | id [ number ] , Identifier_list
+
+Statement_list → Statement Statement_list
+               | ε
+
+Statement → Assign_stat
+          | Decision_stat
+
+Assign_stat → id = Expn ;
+
+Expn → Simple_exp Eprime
+
+Eprime → Relop Simple_exp
+       | ε
+
+Simple_exp → Term Seprime
+
+Seprime → Addop Term Seprime
+        | ε
+
+Term → Factor Tprime
+
+Tprime → Mulop Factor Tprime
+       | ε
+
+Factor → id
+       | number
+
+Decision_stat → if ( Expn ) { Statement_list } Dprime
+
+Dprime → else { Statement_list }
+       | ε
+
+Relop → ==
+      | !=
+      | <=
+      | >=
+      | <
+      | >
+
+Addop → +
+      | -
+
+Mulop → *
+      | /
+      | %
+
+
+-----------------------------------------------------------
+STEP 1: ELIMINATE LEFT RECURSION
+-----------------------------------------------------------
+THERE IS NO LEFT RECURSION
+-----------------------------------------------------------
+
+Program → main ( ) { Declarations Statement_list }
+
+Declarations → Data_type Identifier_list ; Declarations
+             | ε
+
+Data_type → int
+          | char
+
+Identifier_list → id
+                | id , Identifier_list
+                | id [ number ]
+                | id [ number ] , Identifier_list
+
+Statement_list → Statement Statement_list
+               | ε
+
+Statement → Assign_stat
+          | Decision_stat
+
+Assign_stat → id = Expn ;
+
+Expn → Simple_exp Eprime
+
+Eprime → Relop Simple_exp
+       | ε
+
+Simple_exp → Term Seprime
+
+Seprime → Addop Term Seprime
+        | ε
+
+Term → Factor Tprime
+
+Tprime → Mulop Factor Tprime
+       | ε
+
+Factor → id
+       | number
+
+Decision_stat → if ( Expn ) { Statement_list } Dprime
+
+Dprime → else { Statement_list }
+       | ε
+
+Relop → ==
+      | !=
+      | <=
+      | >=
+      | <
+      | >
+
+Addop → +
+      | -
+
+Mulop → *
+      | /
+      | %
+
+------------------------------------------------------
+ELIMINATE LEFT FACTORING
+------------------------------------------------------
+If we have:
+
+A → αβ1 | αβ2
+
+We convert to:
+
+A  → α A'
+A' → β1 | β2
+-------------------------------------------------------
+We convert:
+------------------------------------------------------
+Identifier_list → id
+                | id , Identifier_list
+                | id [ number ]
+                | id [ number ] , Identifier_list
+-------------------------------------------------------
+To:
+
+Identifier_list → id Identifier_list'
+
+Identifier_list' → [ number ] Identifier_list''
+                 | , Identifier_list
+                 | ε
+
+Identifier_list'' → , Identifier_list
+                  | ε
+
+--------------------------------------------------------
