@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>Car Selection</title>
+</head>
+<body>
+
+<h2>Select Car Details</h2>
+
+{% if error %}
+    <p style="color:red;">{{ error }}</p>
+{% endif %}
+
+<form action="{% url 'result' %}" method="POST">
+    {% csrf_token %}
+
+    <label>Choose Manufacturer:</label>
+    <select name="manufacturer" required>
+        <option value="">--Select--</option>
+        <option value="Toyota">Toyota</option>
+        <option value="Honda">Honda</option>
+        <option value="BMW">BMW</option>
+        <option value="Tesla">Tesla</option>
+    </select>
+
+    <br><br>
+
+    <label>Enter Model:</label>
+    <input type="text" name="model" placeholder="Enter model name" required>
+
+    <br><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>
