@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grocery Checklist</title>
+
+    <style>
+        table, th, td {
+            border: 2px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+    </style>
+
+    <script>
+        function addItems() {
+            let items = document.getElementsByName("item");
+            let table = document.getElementById("resultTable");
+
+            // Clear old rows except header
+            let rowCount = table.rows.length;
+            for (let i = rowCount - 1; i > 0; i--) {
+                table.deleteRow(i);
+            }
+
+            for (let i = 0; i < items.length; i++) {
+                if (items[i].checked) {
+                    let row = table.insertRow();
+                    let cell1 = row.insertCell(0);
+                    let cell2 = row.insertCell(1);
+
+                    cell1.innerHTML = items[i].value;
+                    cell2.innerHTML = items[i].dataset.price;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+<h2>Grocery Checklist</h2>
+
+<!-- CHECKBOX LIST -->
+<input type="checkbox" name="item" value="Rice" data-price="50"> Rice<br>
+<input type="checkbox" name="item" value="Milk" data-price="30"> Milk<br>
+<input type="checkbox" name="item" value="Bread" data-price="25"> Bread<br>
+<input type="checkbox" name="item" value="Eggs" data-price="60"> Eggs<br>
+<input type="checkbox" name="item" value="Fruits" data-price="80"> Fruits<br>
+
+<br>
+
+<button onclick="addItems()">Add Item</button>
+
+<br><br>
+
+<!-- TABLE -->
+<table id="resultTable">
+    <tr>
+        <th>Item</th>
+        <th>Price</th>
+    </tr>
+</table>
+
+</body>
+</html>
