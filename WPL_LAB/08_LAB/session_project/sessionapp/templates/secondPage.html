@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Second Page</title>
+</head>
+<body>
+
+<h2>Submitted Details</h2>
+
+<p><strong>Name:</strong> {{ name }}</p>
+<p><strong>Roll:</strong> {{ roll }}</p>
+<p><strong>Subject:</strong> {{ subject }}</p>
+
+<br>
+
+<form action="{% url 'back' %}">
+    <button type="submit">Go Back</button>
+</form>
+
+</body>
+</html>

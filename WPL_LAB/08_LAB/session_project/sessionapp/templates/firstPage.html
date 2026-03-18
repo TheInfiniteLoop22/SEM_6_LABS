@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>First Page</title>
+</head>
+<body>
+
+<h2>Enter Student Details</h2>
+
+<!-- Error Message -->
+{% if error %}
+    <p style="color:red;">{{ error }}</p>
+{% endif %}
+
+<form action="{% url 'submit' %}" method="POST">
+    {% csrf_token %}
+
+    <label>Name:</label><br>
+    <input type="text" name="name" required><br><br>
+
+    <label>Roll:</label><br>
+    <input type="text" name="roll" required><br><br>
+
+    <label>Subject:</label><br>
+    <select name="subject">
+        <option value="Maths">Maths</option>
+        <option value="Physics">Physics</option>
+        <option value="CS">Computer Science</option>
+    </select>
+
+    <br><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>
