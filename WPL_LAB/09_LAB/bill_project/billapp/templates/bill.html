@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Final Bill</title>
+</head>
+<body style="background-color: #f8f9fa; font-family: sans-serif;">
+    <center>
+        <div style="background: white; width: 450px; padding: 40px; margin-top: 60px; border: 2px dashed #333; text-align: center;">
+            <h1 style="margin-top: 0;">INVOICE</h1>
+            <hr>
+            <table width="100%" cellpadding="10" style="text-align: left;">
+                <tr>
+                    <td><strong>Items Purchased:</strong></td>
+                    <td>{{ items }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Quantity:</strong></td>
+                    <td>{{ quantity }}</td>
+                </tr>
+                <tr>
+                    <td><h2 style="color: #d9534f;">Total Amount:</h2></td>
+                    <td><h2 style="color: #d9534f;">${{ total }}</h2></td>
+                </tr>
+            </table>
+            <br>
+            <a href="/" style="text-decoration: none; color: #555;">← Create New Bill</a>
+        </div>
+    </center>
+</body>
+</html>

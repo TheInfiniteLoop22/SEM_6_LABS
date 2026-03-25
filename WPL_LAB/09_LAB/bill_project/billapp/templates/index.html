@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Produce Bill</title>
+</head>
+<body style="background-color: #f8f9fa; font-family: sans-serif;">
+    <center>
+        <div style="background: white; width: 500px; padding: 30px; margin-top: 40px; border: 1px solid #ddd; text-align: left; border-radius: 8px;">
+            <h2 style="border-bottom: 2px solid #333; padding-bottom: 10px;">Store Billing</h2>
+            
+            <form action="/generate_bill/" method="POST">
+                {% csrf_token %}
+                
+                <table width="100%" cellpadding="10">
+                    <tr>
+                        <td valign="top"><b>Select Brand:</b></td>
+                        <td>
+                            <input type="radio" name="brand" value="HP" checked> HP <br>
+                            <input type="radio" name="brand" value="Nokia"> Nokia <br>
+                            <input type="radio" name="brand" value="Samsung"> Samsung <br>
+                            <input type="radio" name="brand" value="Motorola"> Motorola <br>
+                            <input type="radio" name="brand" value="Apple"> Apple
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td valign="top"><b>Select Items:</b></td>
+                        <td>
+                            <input type="checkbox" name="items" value="Mobile"> Mobile <br>
+                            <input type="checkbox" name="items" value="Laptop"> Laptop
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td><b>Quantity:</b></td>
+                        <td><input type="number" name="quantity" min="1" required style="width: 80px;"></td>
+                    </tr>
+                </table>
+
+                <br>
+                <center>
+                    <input type="submit" value="Produce Bill" style="padding: 8px 30px; cursor: pointer; background: #333; color: white; border: none; border-radius: 4px;">
+                </center>
+            </form>
+        </div>
+    </center>
+</body>
+</html>

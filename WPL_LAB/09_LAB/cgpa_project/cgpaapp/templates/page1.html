@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color: #f4f4f4; font-family: sans-serif;">
+    <center>
+        <div style="background: white; width: 400px; padding: 30px; margin-top: 50px; border: 1px solid #ccc; text-align: left;">
+            <form method="POST">
+                {% csrf_token %}
+                <table border="0" cellpadding="10" width="100%">
+                    <tr>
+                        <td width="40%">Name:</td>
+                        <td><input type="text" name="name" required style="width: 100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Total Marks:</td>
+                        <td><input type="number" name="marks" required style="width: 100%;"></td>
+                    </tr>
+                </table>
+                <br>
+                <div style="text-align: center;">
+                    <input type="submit" value="Calculate" style="padding: 5px 20px;">
+                </div>
+            </form>
+            <p align="right" style="color: grey; font-size: 12px;">Page 1</p>
+        </div>
+    </center>
+</body>
+</html>

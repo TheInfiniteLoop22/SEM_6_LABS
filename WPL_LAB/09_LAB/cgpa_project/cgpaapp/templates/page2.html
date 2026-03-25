@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color: #f4f4f4; font-family: sans-serif;">
+    <center>
+        <div style="background: white; width: 400px; padding: 30px; margin-top: 50px; border: 1px solid #ccc;">
+            <div style="text-align: left; padding: 20px;">
+                <h2 style="margin: 0;">Welcome {{ name }}</h2>
+                <h3 style="margin: 10px 0;">Your CGPA is = {{ cgpa }}</h3>
+            </div>
+            <br>
+            <a href="{% url 'page1' %}">Go Back</a>
+            <p align="right" style="color: grey; font-size: 12px;">Page 2</p>
+        </div>
+    </center>
+</body>
+</html>
