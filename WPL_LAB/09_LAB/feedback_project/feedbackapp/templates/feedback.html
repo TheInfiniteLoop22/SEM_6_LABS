@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Courseware Feedback Form</title>
+</head>
+<body style="background-color: #fcfcfc; font-family: 'Times New Roman', Times, serif;">
+
+    <div style="width: 700px; margin: 20px; border: 1px solid #ddd; padding: 20px; background-color: white;">
+        <h3 style="color: brown; border-bottom: 1px solid brown; padding-bottom: 5px;">Courseware Feedback Form</h3>
+
+        <form method="POST">
+            {% csrf_token %}
+            <table width="100%" cellpadding="5" border="0">
+                <tr>
+                    <td width="150" style="color: brown;">Student name:</td>
+                    <td><input type="text" name="name" required style="width: 250px;"></td>
+                </tr>
+
+                <tr>
+                    <td style="color: brown;" valign="top">Sex:</td>
+                    <td>
+                        <input type="radio" name="sex" value="Male" checked> Male <br>
+                        <input type="radio" name="sex" value="Female"> Female
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="color: brown;">Select course:</td>
+                    <td>
+                        <select name="course" style="width: 100px;">
+                            <option value="ASP-XML">ASP-XML</option>
+                            <option value="DotNET">DotNET</option>
+                            <option value="JavaPro">JavaPro</option>
+                            <option value="Unix">Unix</option>
+                            <option value="C">C</option>
+                            <option value="C++">C++</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="color: brown;" valign="top">Technical Coverage:</td>
+                    <td>
+                        <input type="radio" name="coverage" value="Excellent" checked> Excellent <br>
+                        <input type="radio" name="coverage" value="Good"> Good <br>
+                        <input type="radio" name="coverage" value="Average"> Average <br>
+                        <input type="radio" name="coverage" value="Poor"> Poor
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="color: brown;" valign="top">Suggestions:</td>
+                    <td>
+                        <textarea name="suggestions" rows="4" style="width: 90%;"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Submit Form">
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+        {% if submitted %}
+        <div style="margin-top: 20px; color: brown; font-style: italic;">
+            {{ message }}
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
