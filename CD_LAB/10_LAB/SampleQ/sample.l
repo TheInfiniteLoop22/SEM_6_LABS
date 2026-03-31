@@ -1,0 +1,15 @@
+%{
+#include "sample.tab.h"
+%}
+
+%%
+[0-9]+                { return NUMBER; }
+[a-zA-Z][a-zA-Z0-9_]* { return ID; }
+\n                    { return NL; }
+[ \t]                 { /* Skip whitespace */ }
+.                     { return yytext[0]; }
+%%
+
+int yywrap() {
+    return 1;
+}
