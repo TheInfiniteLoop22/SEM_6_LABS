@@ -1,0 +1,15 @@
+<html>
+<body>
+    <h2>Institute Directory</h2>
+    <a href="/add/">Add New Institute</a>
+    <hr>
+    <h3>Select Institute:</h3>
+    <select name="institute_listbox" size="5" style="width: 250px;">
+        {% for inst in institutes %}
+            <option>{{ inst.name }}</option>
+        {% empty %}
+            <option>No data available</option>
+        {% endfor %}
+    </select>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<html>
+<body>
+    <h2>Add Institute Data</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Institute</button>
+    </form>
+    <br>
+    <a href="/">Back to Directory</a>
+</body>
+</html>
