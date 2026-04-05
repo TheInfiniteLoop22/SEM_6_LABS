@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Information System</title>
+</head>
+<body>
+    <h2>Enter Student Details</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit Data</button>
+    </form>
+
+    <hr>
+
+    <h2>Registered Students List</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Course</th>
+                <th>Date of Birth</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.student_id }}</td>
+                <td>{{ student.student_name }}</td>
+                <td>{{ student.course_name }}</td>
+                <td>{{ student.dob }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No student records found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
