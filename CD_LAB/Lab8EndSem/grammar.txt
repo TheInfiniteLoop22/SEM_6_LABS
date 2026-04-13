@@ -1,0 +1,44 @@
+Program → main ( ) { Declarations StatementList }
+
+Declarations → DataType IdentifierList ; Declarations | ε
+
+DataType → int | char
+
+IdentifierList → id IdentifierList'
+
+IdentifierList' → , id IdentifierList'
+                | , id [ number ] IdentifierList'
+                | [ number ] IdentifierList'
+                | ε
+
+StatementList → Statement StatementList | ε
+
+Statement → AssignStat ;
+          | DecisionStat
+          | LoopingStat
+
+AssignStat → id = Expn
+
+DecisionStat → if ( Expn ) { StatementList } Dprime
+
+Dprime → else { StatementList } | ε
+
+Expn → SimpleExpn Eprime
+
+Eprime → Relop SimpleExpn | ε
+
+SimpleExpn → Term Seprime
+
+Seprime → Addop Term Seprime | ε
+
+Term → Factor Tprime
+
+Tprime → Mulop Factor Tprime | ε
+
+Factor → id | num
+
+Relop → == | != | <= | >= | < | >
+
+Addop → + | -
+
+Mulop → * | / | %

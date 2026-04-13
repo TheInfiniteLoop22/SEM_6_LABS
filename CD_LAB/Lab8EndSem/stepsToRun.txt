@@ -1,0 +1,36 @@
+COMPILATION AND EXECUTION STEPS (RD PARSER)
+
+1. Ensure the following files are in the SAME directory:
+
+   * lexicalAnalyser.c
+   * la.h
+   * rd.c
+   * input.c
+
+2. Open terminal in that directory.
+
+3. Compile the program:
+   gcc rd.c lexicalAnalyser.c -o parser
+
+4. If there are no errors, an executable named "parser" will be created.
+
+5. Run the program:
+   ./parser
+
+6. The program will read input from "input.c" automatically.
+
+7. To test different cases:
+
+   * Modify the contents of input.c
+   * Save the file
+   * Run ./parser again
+
+8. Expected outputs:
+
+   * SUCCESS → if input follows grammar
+   * ERROR → if input has syntax mistakes
+
+NOTES:
+
+* Always keep only ONE program inside input.c
+* If changes are made to code, recompile using step 3
